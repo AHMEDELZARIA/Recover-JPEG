@@ -9,7 +9,3 @@ Digital cameras tend to store photographs contiguously on memory cards, whereby 
 The implication of all these details is that me, the investigator, can probably write a program that iterates over a copy of my memory card, looking for JPEGs’ signatures. Each time I find a signature, I can open a new file for writing and start filling that file with bytes from my memory card, closing that file only once I encounter another signature. Moreover, rather than read your memory card’s bytes one at a time, I can read 512 of them at a time into a buffer for efficiency’s sake. Thanks to FAT, I can trust that JPEGs’ signatures will be “block-aligned.” That is, I only need to look for those signatures in a block’s first four bytes.
 
 Realize, of course, that JPEGs can span contiguous blocks. Otherwise, no JPEG could be larger than 512 B. But the last byte of a JPEG might not fall at the very end of a block. Recall the possibility of slack space. But not to worry. Because this memory card was brand-new when you started snapping photos, odds are it’d been “zeroed” (i.e., filled with 0s) by the manufacturer, in which case any slack space will be filled with 0s. It’s okay if those trailing 0s end up in the JPEGs I recover; they should still be viewable.
-
-<div>
-    <img src="https://github.com/AHMEDELZARIA/Recover-JPEG/assets/93144563/03ae0dd9-b139-451a-b7ec-7de95fcdbd66" alt="pexels-pixabay-414781">
-</div>
